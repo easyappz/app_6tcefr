@@ -43,7 +43,6 @@ COPY . .
 # Install and build React
 WORKDIR /app/react
 COPY react/package.json react/package-lock.json* ./
-RUN npm ci --only=production
 COPY react/ .
 RUN npm run build
 WORKDIR /app
