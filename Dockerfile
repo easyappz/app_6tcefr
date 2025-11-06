@@ -42,9 +42,9 @@ COPY . .
 
 # Install and build React
 WORKDIR /app/react
-COPY react/package.json react/package-lock.json* ./
-COPY react/ .
+RUN npm install
 RUN npm run build
+
 WORKDIR /app
 
 # Move React build to the target directory
