@@ -37,18 +37,13 @@ RUN pip install --no-cache-dir --upgrade pip setuptools wheel
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy application code
-COPY . .
-
 # Install and build React
 WORKDIR /app/react
-RUN npm install
+
+COPY . .
+
 RUN npm run build
-
 WORKDIR /app
-
-# Move React build to the target directory
-RUN mv /app/react/build /app/react_build
 
 # Collect static files
 RUN python manage.py collectstatic --noinput
