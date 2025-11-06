@@ -46,6 +46,8 @@ RUN npm run build
 
 WORKDIR /app
 
+COPY . .
+
 # Collect static files
 RUN python manage.py collectstatic --noinput
 
