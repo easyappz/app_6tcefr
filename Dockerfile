@@ -39,7 +39,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Install and build React
 WORKDIR /app/react
-COPY react/package.json react/package-lock.json* ./
+COPY react/package.json ./
 RUN npm install
 
 COPY . .
