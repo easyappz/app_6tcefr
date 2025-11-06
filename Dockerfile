@@ -40,13 +40,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Install and build React
 WORKDIR /app/react
 
-RUN ls -la && \
-    echo "Checking public directory:" && \
-    ls -la public/ && \
-    echo "Checking src directory:" && \
-    ls -la src/
-
-COPY package.json package-lock.json* ./
+COPY react/package.json react/package-lock.json* ./
 
 RUN npm install
 
